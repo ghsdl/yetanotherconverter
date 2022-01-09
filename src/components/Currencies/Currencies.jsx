@@ -5,8 +5,18 @@ import './Currencies.scss';
 const Currencies = () => {
   return (
     <div className='currencies'>
-      <h1 className='currencies__title'></h1>
+      <h2 className='currencies__title'>Currencies</h2>
       <ul className='currencies__list'>
+        <Currency />
+        <Currency />
+        <Currency />
+        <Currency />
+        <Currency />
+        <Currency />
+        <Currency />
+        <Currency />
+        <Currency />
+        <Currency />
         <Currency />
         <Currency />
       </ul>

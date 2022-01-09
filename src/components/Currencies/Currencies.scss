@@ -1,0 +1,32 @@
+@use '../../styles/vars.scss' as v;
+
+.currencies {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  background-color: v.$color-white;
+  color: v.$color-primary;
+  padding-top: v.$space / 2;
+  max-height: 50vh;
+  overflow: auto;
+  &__title {
+    font-size: 1.5rem;
+    font-weight: v.$font-bold;
+    padding: v.$space;
+  }
+}
+
+.currency {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: v.$space;
+  transition: background-color v.$transition-slow;
+  cursor: pointer;
+  border-top: 1px solid v.$color-alt;
+  &:hover {
+    background-color: v.$color-alt;
+    color: v.$color-white;
+    transition: background-color v.$transition-fast;
+  }
+}
