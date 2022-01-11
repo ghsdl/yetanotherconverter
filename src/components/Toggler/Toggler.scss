@@ -1,0 +1,11 @@
+@use '../../styles/vars.scss' as v;
+
+.toggler {
+  border: 0;
+  background-color: v.$color-white;
+  color: v.$color-primary;
+  width: 500px;
+  font-size: 1rem;
+  padding: v.$space * 2 v.$space * 2 v.$space v.$space * 2;
+  font-size: 2rem;
+}

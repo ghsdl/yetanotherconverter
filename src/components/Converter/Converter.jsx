@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../Header/Header.jsx';
 import Currencies from '../Currencies/Currencies.jsx';
 import Amount from '../Amount/Amount.jsx';
+import Toggler from '../Toggler/Toggler.jsx';
 import './Converter.scss';
 
 import currencies from '../../data/currencies.js';
@@ -11,9 +12,7 @@ const Converter = () => {
   return (
     <div className='converter'>
       <Header value={5} />
-      <button type='button' onClick={() => setToggle(!toggle)}>
-        Show currencies
-      </button>
+      <Toggler onClick={() => setToggle(!toggle)} isOpen={toggle} />
       {toggle && <Currencies currencies={currencies} />}
       <Amount value={1.09} currency='Pound' />
     </div>

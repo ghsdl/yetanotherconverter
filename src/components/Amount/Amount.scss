@@ -8,7 +8,7 @@
   align-items: center;
   background-color: v.$color-white;
   color: v.$color-primary;
-  padding: v.$space * 2;
+  padding: v.$space v.$space * 2 v.$space * 2 v.$space * 2;
   &__value {
     font-size: 2.5rem;
     font-weight: v.$font-bold;
