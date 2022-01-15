@@ -16,7 +16,17 @@ const Converter = () => {
 
   return (
     <div className='converter'>
-      <Header value={baseValue} />
+      <Header
+        value={baseValue}
+        onChange={(value) => {
+          setBaseValue(Number(value));
+        }}
+        onClick={() => {
+          setBaseValue(1);
+          setCurrency('United States Dollar');
+          setSearch('');
+        }}
+      />
       <Toggler onClick={() => setToggle(!toggle)} isOpen={toggle} />
       {toggle && (
         <Currencies
