@@ -3,18 +3,25 @@ import Currency from './Currency.jsx';
 import { arrayOf, string, shape, number, func } from 'prop-types';
 import './Currencies.scss';
 
-const Currencies = ({ currencies, onChange }) => {
-  const currenciesList = currencies.map((currency) => (
-    <Currency
-      key={currency.name}
-      name={currency.name}
-      onClick={onChange}
-    />
-  ));
+const Currencies = ({ currencies, onChange, input, onChangeInput }) => {
   return (
     <div className='currencies'>
-      <h2 className='currencies__title'>Currencies</h2>
-      <ul className='currencies__list'>{currenciesList}</ul>
+      <input
+        type='text'
+        className='currencies__search'
+        placeholder='Search for a currency'
+        value={input}
+        onChange={(event) => onChangeInput(event.target.value)}
+      />
+      <ul className='currencies__list'>
+        {currencies.map((currency) => (
+          <Currency
+            key={currency.name}
+            name={currency.name}
+            onClick={onChange}
+          />
+        ))}
+      </ul>
     </div>
   );
 };
@@ -27,6 +34,8 @@ Currencies.propTypes = {
     }),
   ).isRequired,
   onChange: func.isRequired,
+  input: string.isRequired,
+  onChangeInput: func.isRequired,
 };
 
 export default Currencies;

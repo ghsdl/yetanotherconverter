@@ -3,7 +3,7 @@ import Header from '../Header/Header.jsx';
 import Currencies from '../Currencies/Currencies.jsx';
 import Amount from '../Amount/Amount.jsx';
 import Toggler from '../Toggler/Toggler.jsx';
-import { conversion } from './ConverterUtils.js';
+import { conversion, filter } from './ConverterUtils.js';
 import './Converter.scss';
 
 import currencies from '../../data/currencies.js';
@@ -12,6 +12,7 @@ const Converter = () => {
   const [toggle, setToggle] = useState(null);
   const [currency, setCurrency] = useState('United States Dollar');
   const [baseValue, setBaseValue] = useState(1);
+  const [search, setSearch] = useState('');
 
   return (
     <div className='converter'>
@@ -19,9 +20,13 @@ const Converter = () => {
       <Toggler onClick={() => setToggle(!toggle)} isOpen={toggle} />
       {toggle && (
         <Currencies
-          currencies={currencies}
+          currencies={filter(currencies, search)}
           onChange={(name) => {
             setCurrency(name);
+          }}
+          input={search}
+          onChangeInput={(value) => {
+            setSearch(value);
           }}
         />
       )}

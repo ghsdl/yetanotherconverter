@@ -5,4 +5,14 @@ const conversion = (currency, baseValue, currencies) => {
   return Math.round(baseValue * currencyCode.rate * 100) / 100;
 };
 
-export { conversion };
+const filter = (currencies, search) => {
+  let filteredCurrencies = currencies;
+  if (search.length > 0) {
+    filteredCurrencies = currencies.filter((money) => {
+      return money.name.toLowerCase().includes(search.toLowerCase());
+    });
+  }
+  return filteredCurrencies;
+};
+
+export { conversion, filter };
