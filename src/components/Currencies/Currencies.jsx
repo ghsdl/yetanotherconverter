@@ -1,11 +1,15 @@
 import React from 'react';
 import Currency from './Currency.jsx';
-import { arrayOf, string, shape, number } from 'prop-types';
+import { arrayOf, string, shape, number, func } from 'prop-types';
 import './Currencies.scss';
 
-const Currencies = ({ currencies }) => {
+const Currencies = ({ currencies, onChange }) => {
   const currenciesList = currencies.map((currency) => (
-    <Currency key={currency.name} name={currency.name} />
+    <Currency
+      key={currency.name}
+      name={currency.name}
+      onClick={onChange}
+    />
   ));
   return (
     <div className='currencies'>
@@ -22,6 +26,7 @@ Currencies.propTypes = {
       rate: number.isRequired,
     }),
   ).isRequired,
+  onChange: func.isRequired,
 };
 
 export default Currencies;
