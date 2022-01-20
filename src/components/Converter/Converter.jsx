@@ -33,6 +33,7 @@ const Converter = () => {
           currencies={filter(currencies, search)}
           onChange={(name) => {
             setCurrency(name);
+            setToggle(!toggle);
           }}
           input={search}
           onChangeInput={(value) => {
